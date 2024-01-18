@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Employee App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mycss.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="delete.html">Delete</a></li>
+            <li><a href="index.html">Add</a></li>
+            <li><a href="update.html">Update</a></li>
+            </ul>
+        </nav>
+        
+        <form action="searchnew" method="post">
+            <label>Query on known languages</label><br/>
+            <label>The wanted language</label><br/>
+            <input type="text" name="lang"/><br/>
+            <label>The wanted Score</label><br/>
+            <input type="number" name="score"/><br/>
+            <select name="operation">
+                <option value="higher">higher than</option>
+                <option value="lower">lower than</option>
+                <option value="equal">equal to</option>
+            </select><br/>
+            <input type="submit" value="retrive"/>
+        </form>
+    </body>
+</html>

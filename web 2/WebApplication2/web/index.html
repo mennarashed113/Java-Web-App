@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Employee App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mycss.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="delete.html">Delete</a></li>
+                <li><a href="update.html">Update</a></li>
+                <li><a href="searchlang.html">search2</a></li>
+            </ul>
+        </nav>
+        <form  method="post" id="Form" action="addEmp">
+            <br/><br/>
+            <label>Add Employee</label>
+            <br><br>
+            <label>First Name</label><br/>
+            <input type="text" name="firstName"/><br/>
+            <label>Last Name</label><br/>
+            <input type="text" name="lastName"/><br/>
+            <label>Employee ID</label><br/>
+            <input type="number" name="ID"/><br/>
+            <label>Designation</label><br/>
+            <input type="text" name="designation"/><br/>
+            <label>Number of Known language </label><br/>
+            <input type="number" id="num" name="num"/>
+            <input id="bo1" type="button" value="enter" onclick="addLang(document.getElementById('num').value)"/><br/>
+            <div id="here"></div>
+            <br>
+            <input id="bo2" type="submit" value="Submit" >
+        </form>
+        <script>
+            function addLang(n){
+                form = document.getElementById('here');
+                for(var i=1; i<=n;i++){
+                    var lable= document.createElement("label");
+                    lable.textContent="Enter the language name "+i;
+                    var br1=document.createElement("br");
+                    var br2=document.createElement("br");
+                    var br3=document.createElement("br");
+                    var br4=document.createElement("br");
+                    var lang= document.createElement("input");
+                    lang.type="text";
+                    lang.name="lang"+i;
+                    var lable2= document.createElement("label");
+                    lable2.textContent="Enter the language score "+i;
+                    var score = document.createElement("input");
+                    score.type='number';
+                    score.name='score'+i;
+                    
+                    form.appendChild(br1);
+                    form.appendChild(lable);
+                    form.appendChild(br2);
+                    form.appendChild(lang);
+                    form.appendChild(br4);
+                    form.appendChild(lable2);
+                    form.appendChild(br3);
+                    form.appendChild(score);
+                }
+            }
+        </script>
+    </body>
+</html>
