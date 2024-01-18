@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Update</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mycss.css">
+    </head>
+    <body>
+         <nav>
+            <ul>
+                <li><a href="index.html">Add Students</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="delete.html">Delete</a></li>
+                <li><a href="sort.html">Sort</a></li>
+            </ul>
+        </nav>
+        <form  method="post" id="form2" action="update_survlet">
+            <label>Enter student's ID you want to update </label><br/>
+            <input type="text" name="ID" required><br/>
+            <label>if you want update student's first name add the new name here </label>
+            <input type="text" name="firstname" ><br/>
+            <label>if you want update student's second name add the new name here</label>
+            <input type="text" name="lastname" ><br/>
+            <label>if you want update student's address add the new address here</label>
+            <input type="text" name="address" ><br/>
+            <label>if you want update student's GPA add the new GPA here </label>
+            <input type="text" name="gpa" ><br/>
+            <label>if you want update student's level add the new level here </label>
+            <input type="text" name="level" ><br/>
+            <label>if you want update student's gender add the new gender here </label>
+            <input type="text" name="gender" ><br/>
+            <input type="submit" value="Enter" >
+        </form>
+    </body>
+</html>

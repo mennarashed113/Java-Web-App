@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Employee app</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mycss.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="delete.html">Delete</a></li>
+                <li><a href="update.html">Update</a></li>
+                <li><a href="sort.html">Sort</a></li>
+            </ul>
+        </nav>
+        <form  method="post" id="dynamicForm">
+            <br/><br/>
+            <label>Enter no of students you want to add </label>
+            <input type="number" id="numStudents" name="numStudents" min="1" required>
+        <input id="bo1" type="submit" value="Enter" >
+        </form>
+        
+        <div id="studentDataFields"></div>
+        
+       <script>
+        document.querySelector('#dynamicForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var elementToHide = document.getElementById('bo1');
+            elementToHide.style.display = 'none';
+            var numStudents = document.querySelector('#numStudents').value;
+            
+            generateDynamicForm(numStudents);
+        });
+        
+        function generateDynamicForm(n) {
+            var studentDataFields = document.querySelector('#studentDataFields');
+            studentDataFields.innerHTML = "";
+            var form2 = document.createElement('form');
+            form2.action="myserve";
+            form2.method="post";
+            form2.id="form2"
+            var sub3 = document.createElement('input');
+            sub3.type="number";
+            sub3.name="num";
+            sub3.id="num";
+            sub3.style.display='none';
+            studentDataFields.appendChild(form2);
+            form2.appendChild(sub3);
+            var s= document.getElementById("num");
+            s.value+=n;
+            for (var i = 1; i <= n; i++) {
+                var br= document.createElement("br");
+                var br1= document.createElement("br");
+                var br2= document.createElement("br");
+                var br3= document.createElement("br");
+                var br5= document.createElement("br");
+                var br6= document.createElement("br");
+                var br7= document.createElement("br");
+                var br8= document.createElement("br");
+                var div2 = document.createElement('div');
+                div2.innerHTML="";
+                var label= document.createElement("label");
+                label.textContent="Enter student ID "+i;
+                //br
+                var id= document.createElement("input");
+                id.type="text";
+                id.name="id_"+i;
+                id.required=true;
+                //br
+                var label1= document.createElement("label");
+                label1.textContent="Enter student first name number "+i;
+                //br
+                var frname= document.createElement("input");
+                frname.type="text";
+                frname.name="frname_"+i;
+                frname.required=true;
+                (function () {
+                    var currentFrname = frname;
+                    var i2=i;// Capture the current frname element
+                    currentFrname.addEventListener("input", function () {
+                        charValidateInput(currentFrname, "The first name format is invalid of student "+i2+" only characters are valid");
+                    });
+                })(frname,i);
+                //br
+                var label2= document.createElement("label");
+                label2.textContent="Enter student last name number "+i;
+                //br
+                var lsname= document.createElement("input");
+                lsname.type="text";
+                lsname.name="lsname_"+i;
+                lsname.required=true;
+                
+                (function () {
+                    var currentLsname = lsname;
+                    var i2=i;// Capture the current lsname element
+                    currentLsname.addEventListener("input", function () {
+                        charValidateInput(currentLsname, "The last name format is invalid of student "+i2+" only characters are valid");
+                    });
+                })(lsname,i);
+                //br
+                var label3= document.createElement("label");
+                label3.textContent="Enter student gender "+i;
+                //br
+                var gen= document.createElement("input");
+                gen.type="text";
+                gen.name="gender_"+i;
+                gen.required=true;
+                //br
+                var label4= document.createElement("label");
+                label4.textContent="Enter student GPA "+i;
+                //br
+                var gpa= document.createElement("input");
+                gpa.type="number";
+                gpa.name="gpa_"+i;
+                gpa.required=true;
+                
+                (function () {
+                    var currentgpa = gpa;
+                    var i2=i;// Capture the current add element
+                    currentgpa.addEventListener("input", function () {
+                        gpaValidate(currentgpa, "The Gpa of student "+i2+" should be between 0 - 4");
+                    });
+                })(gpa,i);
+                //br
+                var label5= document.createElement("label");
+                label5.textContent="Enter student level "+i;
+                //br
+                var lv= document.createElement("input");
+                lv.type="text";
+                lv.name="level_"+i;
+                lv.required=true;
+                //br
+                var label6= document.createElement("label");
+                label6.textContent="Enter student address "+i;
+                //br
+                var add= document.createElement("input");
+                add.type="text";
+                add.name="address_"+i;
+                add.required=true;
+                
+                (function () {
+                    var currentAdd = add;
+                    var i2=i;// Capture the current add element
+                    currentAdd.addEventListener("input", function () {
+                        charValidateInput(currentAdd, "The address format is invalid of student "+i2+" only characters are valid");
+                    });
+                })(add,i);
+                
+                div2.appendChild(label);
+                div2.appendChild(id);
+                div2.appendChild(br);
+                div2.appendChild(label1);
+                div2.appendChild(frname);
+                div2.appendChild(br1);
+                div2.appendChild(label2);
+                div2.appendChild(lsname);
+                div2.appendChild(br2);
+                div2.appendChild(label3);
+                div2.appendChild(gen);
+                div2.appendChild(br3);
+                div2.appendChild(label4);
+                div2.appendChild(gpa);
+                div2.appendChild(br5);
+                div2.appendChild(label5);
+                div2.appendChild(lv);
+                div2.appendChild(br6);
+                div2.appendChild(label6);
+                div2.appendChild(add);
+                div2.appendChild(br7);
+                div2.appendChild(br8);
+                form2.appendChild(div2);
+                
+            }           
+            var sub2 = document.createElement('input');
+            sub2.type="submit";
+            sub2.value="submit";
+            form2.appendChild(sub2);
+    }
+    
+    function charValidateInput(inputElement, errorMessage) {
+            var nonalphabet = /[0-9!@#$%^&*()_+=\-<>?:"'{}[\];]/;
+            if (nonalphabet.test(inputElement.value)) {
+                alert(errorMessage);
+                inputElement.setCustomValidity(errorMessage);
+            } else {
+                inputElement.setCustomValidity("");
+            }
+        }
+    
+    function gpaValidate(gpa,errorMessage){
+       if(gpa.value<0||gpa.value>4){
+           alert(errorMessage);
+           gpa.setCustomValidity(errorMessage);
+       }else{
+           gpa.setCustomValidity("");
+       }
+    }
+
+        // Event listener for the dynamic form submission
+        document.querySelector("#form2").addEventListener("submit", function (e) {
+            // Prevent form submission if there are validation errors
+            if (!this.checkValidity()) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+    </script>
+
+
+    </body>
+</html>

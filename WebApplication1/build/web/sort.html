@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sort</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="mycss.css">
+    </head>
+    <body>
+        <nav>
+        <ul>
+            <li><a href="index.html">Add Students</a></li>
+            <li><a href="delete.html">Delete</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="update.html">Update</a></li>
+        </ul>
+        </nav>
+        
+         <form  action="sort_survlet" method="post">
+            <br>
+            <label>Select the Sorting attribute </label><br>
+            <select name="att">
+                <option value="ID">ID</option>
+                <option value="firstname">First Name</option>
+                <option value="lastname">Last Name</option>
+                <option value="gender">Gender</option>
+                <option value="GPA">GPA</option>
+                <option value="level">Level</option>
+                <option value="address">Address</option>
+            </select><br/><br/>
+            <label>Select the way of Sorting </label><br>
+            <select name="order">
+                <option value="asd">ascending</option>
+                <option value="des">descending</option>
+            </select>
+            <input type="submit" value="Submit"/>
+        </form>
+    </body>
+</html>
